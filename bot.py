@@ -106,7 +106,7 @@ def build_msg(data):
     sjc_b, sjc_s = data["sjc"]
     ring_b, ring_s = data["ring"]
     return (
-        f"💰 Gold 2h Update — {vn_now()}\n"
+        f"💰 <b>Gold 2h Update</b> — {vn_now()}\n"
         f"• Nguồn: giavang.org\n\n"
         f"🧈 SJC:    Mua {_fmt(sjc_b)} | Bán {_fmt(sjc_s)}\n"
         f"🟡 Nhẫn 9999:   Mua {_fmt(ring_b)} | Bán {_fmt(ring_s)}\n"
