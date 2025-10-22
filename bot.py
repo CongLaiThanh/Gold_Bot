@@ -14,7 +14,7 @@ load_dotenv()
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "").strip()
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 
-INTERVAL_SECONDS = 5*60  # 4 giờ
+INTERVAL_SECONDS = 2*60*60  # 2 giờ
 
 
 try:
