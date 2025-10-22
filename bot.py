@@ -2,7 +2,7 @@ import os
 import re
 import datetime
 from zoneinfo import ZoneInfo
-
+from telegram.constants import ParseMode
 import httpx
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
@@ -117,16 +117,16 @@ def build_msg(data):
 async def job_send(ctx: ContextTypes.DEFAULT_TYPE):
     try:
         data = await fetch_giavang()
-        await ctx.bot.send_message(TELEGRAM_CHAT_ID, build_msg(data))
+        await ctx.bot.send_message(TELEGRAM_CHAT_ID, build_msg(data),parse_mode=ParseMode.HTML,disable_web_page_preview=True)
     except Exception as e:
         print("[ERROR]", e)
 
 async def cmd_start(update: Update, ctx):
-    await update.message.reply_text("Bot vàng đang hoạt động!\n/now để xem giá ngay, /id để lấy chat_id của bạn.")
+    await update.message.reply_text("Bot vàng đang hoạt động!\n/now để xem giá ngay, /id để lấy chat_id của bạn.",parse_mode=ParseMode.HTML)
 
 async def cmd_now(update: Update, ctx):
     data = await fetch_giavang()
-    await update.message.reply_text(build_msg(data))
+    await update.message.reply_text(build_msg(data), parse_mode=ParseMode.HTML,disable_web_page_preview=True)
 
 async def cmd_id(update: Update, ctx):
     await update.message.reply_text(f"Chat ID: {update.effective_chat.id}")
